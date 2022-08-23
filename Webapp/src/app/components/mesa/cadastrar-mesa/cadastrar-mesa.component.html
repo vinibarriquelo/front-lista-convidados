@@ -1,0 +1,18 @@
+<div class="">
+  <form [formGroup]="form">
+    <mat-form-field class="w-full mb-5" appearance="fill">
+      <mat-label>Numero da mesa</mat-label>
+      <input type="number" formControlName="number" matInput placeholder="Digite o numero da mesa">
+    </mat-form-field>
+
+    <mat-form-field class="w-full mb-5" appearance="fill">
+      <mat-label>Descrição da mesa</mat-label>
+      <input type="text" formControlName="description" matInput placeholder="digite a descrição dessa mesa">
+    </mat-form-field>
+  </form>
+
+  <div class="flex gap-5 justify-end">
+    <button mat-flat-button color="warn" (click)="close(false)">Voltar</button>
+    <button mat-flat-button color="primary" class="" (click)="enviar()" routerLink="/home">Cadastrar</button>
+  </div>
+</div>

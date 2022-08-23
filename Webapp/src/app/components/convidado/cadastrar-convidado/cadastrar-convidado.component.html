@@ -1,0 +1,13 @@
+<div class="">
+  <form [formGroup]="form" (ngSubmit)="enviar()">
+    <mat-form-field class="w-full mb-5" appearance="fill">
+      <mat-label>Nome do convidado</mat-label>
+      <input type="text" formControlName="name" matInput placeholder="Digite o nome do convidado">
+    </mat-form-field>
+
+    <div class="flex gap-5 justify-end">
+      <button mat-flat-button color="warn" (click)="close(false)">Voltar</button>
+      <button mat-flat-button color="primary" class="" type="submit" routerLink="/home">Cadastrar</button>
+    </div>
+  </form>
+</div>
