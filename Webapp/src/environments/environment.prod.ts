@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://lista-convidados-api.herokuapp.com/guest'
+  apiUrl: 'https://lista-convidados-api.herokuapp.com'
 };
