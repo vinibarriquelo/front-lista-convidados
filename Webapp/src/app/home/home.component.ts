@@ -50,8 +50,7 @@ export class HomeComponent implements OnInit {
   }
 
   public listarConvidados() {
-    setTimeout(() => {
-      this.convidadoService.listarConvidados().subscribe(
+    this.convidadoService.listarConvidados().subscribe(
       res => {
         this.convidados = res;
       },
@@ -59,8 +58,6 @@ export class HomeComponent implements OnInit {
         console.log(err);
       }
     )
-    },300)
-    
   }
 
   public filterConvidados(convidados: ConvidadoModel[], idMesa: string) {
