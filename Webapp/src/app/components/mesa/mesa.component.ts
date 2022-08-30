@@ -83,9 +83,7 @@ export class MesaComponent implements OnInit, OnChanges {
   public statusConvidado(convidado: ConvidadoModel) {
     this.convidadosService.editarConvidado(convidado).subscribe(
       res => {
-        setTimeout(() => {
-          this.relistarConvidados.emit();
-        }, 50);
+        this.relistarConvidados.emit();
       },
       err => {
         console.log(err);
