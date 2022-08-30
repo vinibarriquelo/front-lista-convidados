@@ -39,21 +39,28 @@ export class MesaComponent implements OnInit, OnChanges {
   }
 
   public excluirMesa(id: string) {
-    this.mesaService.excluirMesa(id).subscribe(
-      res => {
-        this._snackBar.open('Mesa excluida !', 'Ok', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
-        this.relistarMesas.emit();
-      },
-      err => {
-        this._snackBar.open('Erro ao excluir a mesa !', 'Ops', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
-      }
-    )
+    if(this.convidados.length < 1){
+      this.mesaService.excluirMesa(id).subscribe(
+        res => {
+          this._snackBar.open('Mesa excluida !', 'Ok', {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+          this.relistarMesas.emit();
+        },
+        err => {
+          this._snackBar.open('Erro ao excluir a mesa !', 'Ops', {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+        }
+      )
+    } else {
+      this._snackBar.open('Você tem convidados nessa mesa, retire para excluir.', 'Ops', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
+    }
   }
 
   public adicionarConvidado() {
