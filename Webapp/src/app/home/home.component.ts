@@ -64,4 +64,8 @@ export class HomeComponent implements OnInit {
     return convidados.filter(convidado => convidado.idMesa == idMesa);
   }
 
+  public countConfirmado(convidado: ConvidadoModel[]) {
+    return this.convidados.filter(c => c.status).length;
+  }
+
 }

@@ -79,4 +79,21 @@ export class MesaComponent implements OnInit, OnChanges {
       }
     )
   }
+
+  public statusConvidado(convidado: ConvidadoModel) {
+    this.convidadosService.editarConvidado(convidado).subscribe(
+      res => {
+        setTimeout(() => {
+          this.relistarConvidados.emit();
+        }, 50);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  public countConfirmado(convidado: ConvidadoModel[]) {
+    return this.convidados.filter(c => c.status).length;
+  }
 }

@@ -25,4 +25,12 @@ export class ConvidadosService {
   public deletarConvidado(id: string): Observable<any> {
     return this.http.delete<any>(`${environment.apiUrl}/guest/${id}`);
   }
+
+  public editarConvidado(convidado: ConvidadoModel): Observable<any> {
+    return this.http.put<any>(`${environment.apiUrl}/guest/${convidado._id}`, {
+      name: convidado.name,
+      idMesa: convidado.idMesa,
+      status: !convidado.status
+    });
+  }
 }

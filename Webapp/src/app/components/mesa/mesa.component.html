@@ -1,7 +1,12 @@
 <div class="mesa" style="min-width: 300px;">
   <header class="bg-azul-mui text-branco p-3 flex items-center justify-between">
-    <h3 class="m0">{{ mesa.number }}</h3>
-    <p class="m0 font-bold">{{ mesa.description }}</p>
+    <div class="flex gap-2 items-center">
+      <h3 class="m0">{{ mesa.number }}</h3>
+      <p class="m0 font-bold">{{ mesa.description }}</p>
+    </div>
+    <div class="flex items-center">
+      <p class="m0"><span style="color: #ff4081;">{{ countConfirmado(convidados) }}</span> / {{convidados.length}}</p>
+    </div>
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
       <mat-icon>more_vert</mat-icon>
     </button>
@@ -20,8 +25,9 @@
     <ul>
       <li class="p-4 flex gap-3 items-center justify-between" *ngFor="let convidado of convidados">
         <div class="flex gap-3 items-center">
-          <mat-checkbox class="example-margin"></mat-checkbox>
-          <p class="m0">{{ convidado.name }}</p>
+          <mat-checkbox (change)="statusConvidado(convidado)" [checked]="convidado.status" class="example-margin">
+            <p class="m0">{{ convidado.name }}</p>
+          </mat-checkbox>
         </div>
         <mat-icon style="cursor: pointer;" class="" (click)="deletarConvidado(convidado._id)">delete</mat-icon>
       </li>
